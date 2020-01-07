@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property name="LOGS_ABSOLUTE_PATH" value="./log" />
+
+	<!-- Send debug messages to System.out -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%date] [%thread] [%level] [%c{0}:%L] : %msg %n</pattern>
+        </encoder>
+    </appender>
+
+	<!-- Default Logging -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGS_ABSOLUTE_PATH}/trace.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>[%date] [%thread] [%level] [%c{0}:%L] : %msg %n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGS_ABSOLUTE_PATH}/trace_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+			<!-- each file should be at most 10MB, keep 30 days worth of history -->
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+
+	<!-- Error Logging -->
+	<appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGS_ABSOLUTE_PATH}/error.log</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>[%date] [%thread] [%level] [%c{0}:%L] : %msg %n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGS_ABSOLUTE_PATH}/error_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<!-- Daemon Live Logging -->
+	<appender name="LIVE_TRACER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGS_ABSOLUTE_PATH}/live_trace.log</file>
+		<append>true</append>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGS_ABSOLUTE_PATH}/live_trace.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+	        	<maxFileSize>100MB</maxFileSize>
+      		</timeBasedFileNamingAndTriggeringPolicy>
+      		<maxHistory>7</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<immediateFlush>true</immediateFlush>
+			<pattern>[%date] [%thread] [%level] [%c{0}:%L] : %msg %n</pattern>
+		</encoder>
+	</appender>
+	<logger name="liveTraceLog" level="INFO" additivity="false">
+		<appender-ref ref="LIVE_TRACER"/>
+	</logger>
+	<!-- daemon live logging -->
+	
+	<logger name="liveTraceLog" level="INFO" additivity="false">
+		<appender-ref ref="LIVE_TRACER"/>
+	</logger>
+	
+	<logger name="org.apache.log4j.ConsoleAppender" level="${logger.apache.log4j.consoleappender.level}"/>
+    <logger name="org.springframework.beans" level="INFO"/>
+    <logger name="org.springframework.jdbc" level="INFO"/>
+    <logger name="org.springframework.batch.core" level="INFO"/>
+	
+
+    <root level="INFO">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="ERROR" />
+	</root>
+
+</configuration>

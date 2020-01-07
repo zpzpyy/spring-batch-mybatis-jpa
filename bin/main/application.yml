@@ -1,0 +1,29 @@
+spring:
+  scheduler:
+    # 주기성 스케줄러
+    cycle:
+      live-check:
+        delay: 30000
+    
+    # cron-batch 스케줄러
+    cron:
+      file-read-db-write-batch:
+        use-yn: N
+        cron-cycle: "0 25 16 * * *"
+        chunk-size: 1000
+        read-file-path: "C://workspace_platform/spring-batch-mybatis-jpa/files/read.txt"
+      db-read-file-write-batch:
+        use-yn: N
+        cron-cycle: "0 27 16 * * *"
+        chunk-size: 1000
+        write-file-path: "C://workspace_platform/spring-batch-mybatis-jpa/files/write.txt"
+      jpa-file-read-db-write-batch:
+        use-yn: Y
+        cron-cycle: "0 36 16 * * *"
+        chunk-size: 1000
+        read-file-path: "C://workspace_platform/spring-batch-mybatis-jpa/files/read.txt"
+      jpa-db-read-file-write-batch:
+        use-yn: N
+        cron-cycle: "0 32 16 * * *"
+        chunk-size: 1000
+        write-file-path: "C://workspace_platform/spring-batch-mybatis-jpa/files/write.txt"
