@@ -33,3 +33,7 @@
 ## Process
 
 * Scheduler -> Job -> Step -> Reader -> Process -> Writer
+
+## PerformanceTest
+
+* <img src="https://user-images.githubusercontent.com/37128830/71947536-875b6200-3210-11ea-8ed4-f69630e2e9a2.png">
