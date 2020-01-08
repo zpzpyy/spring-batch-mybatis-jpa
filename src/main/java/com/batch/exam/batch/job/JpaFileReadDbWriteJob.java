@@ -18,6 +18,12 @@ import com.batch.exam.batch.step.JpaFileReadDbWriteStep;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * File read DB write batch Job(JPA)
+ * 
+ * @author ljs
+ * @since 0.1
+ */
 @Slf4j
 @Component
 public class JpaFileReadDbWriteJob {
@@ -32,8 +38,9 @@ public class JpaFileReadDbWriteJob {
 		
 		log.info("[JpaFileReadDbWriteJob] executeJob() START....  jobName:{} / stepName:{} / param:{} ",jobName,stepName,param);
 		
+		// example parameter
 		Map<String,Object> paramMap = new HashMap<String, Object>(); 
-		paramMap.put("USER_ID", "lizzs");
+		paramMap.put("USER_ID", "test");
 		
 		return jobBuilderFactory.get( jobName )
 				.start( step.executeStep( stepName, paramMap )  )

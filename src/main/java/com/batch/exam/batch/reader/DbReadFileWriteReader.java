@@ -12,6 +12,12 @@ import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * DB read File write batch reader(mybatis)
+ * 
+ * @author ljs
+ * @since 0.1
+ */
 @Slf4j
 @Component
 public class DbReadFileWriteReader {
@@ -19,7 +25,6 @@ public class DbReadFileWriteReader {
 	@Autowired
 	@Qualifier("sqlSessionFactory")
 	SqlSessionFactory sqlSessionFactory;
-	
 	
 	private final String queryId = "com.batch.exam.mapper.DbReadFileWriterMapper.selectUser";
 	

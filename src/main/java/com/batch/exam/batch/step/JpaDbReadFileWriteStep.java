@@ -14,10 +14,17 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.batch.exam.batch.processor.JpaDbReadFileWriteProcessor;
 import com.batch.exam.batch.reader.JpaDbReadFileWriteReader;
 import com.batch.exam.batch.writer.JpaDbReadFileWriteWriter;
+import com.batch.exam.config.Column;
 import com.batch.exam.info.User;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * DB read File write batch step(JPA)
+ * 
+ * @author ljs
+ * @since 0.1
+ */
 @Slf4j
 @Component
 public class JpaDbReadFileWriteStep {
@@ -37,6 +44,7 @@ public class JpaDbReadFileWriteStep {
 	public Step executeStep( String stepName, Map<String,Object> param ) {
 		
 		log.info("[JpaDbReadFileWriteStep] executeStep START...");
+		param.put( Column.CHUNK_SIZE, chunkSize );
 		
 		return stepBuilderFactory.get( stepName )
 				.<User, User>chunk( chunkSize )

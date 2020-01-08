@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class Column {
 	
 	/** batch jobId */
-	public static String JOB_ID	= "JOB_ID";
+	public static String JOB_ID							= "JOB_ID";
 	/** jobName(FileReadDbWriteJob) */
 	public static String FILE_READ_DB_WRITE_JOB			= "FileReadDbWriteJob";
 	/** stepName(FileReadDbWriteStep) */
@@ -27,5 +27,7 @@ public class Column {
 	/** stepName(JpaFileReadDbWriteStep) */
 	public static String JPA_FILE_READ_DB_WRITE_STEP	= "JpaFileReadDbWriteStep";
 	
+	/** batch chunk size name */
+	public static String CHUNK_SIZE 					= "CHUNK_SIZE";
 	
 }

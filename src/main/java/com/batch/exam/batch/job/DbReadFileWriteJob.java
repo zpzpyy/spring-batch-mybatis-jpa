@@ -16,6 +16,12 @@ import com.batch.exam.batch.step.FileReadDbWriteStep;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * DB read File write batch Job(mybatis)
+ * 
+ * @author ljs
+ * @since 0.1
+ */
 @Slf4j
 @Component
 public class DbReadFileWriteJob {
@@ -30,8 +36,9 @@ public class DbReadFileWriteJob {
 		
 		log.info("[DbReadFileWriteJob] executeJob() START....  jobName:{} / stepName:{} / param:{} ",jobName,stepName,param);
 		
+		// example parameter
 		Map<String,Object> paramMap = new HashMap<String, Object>(); 
-		paramMap.put("USER_ID", "lizzs");
+		paramMap.put("USER_ID", "test");
 		
 		return jobBuilderFactory.get( jobName )
 				.start( step.executeStep( stepName, paramMap )  )

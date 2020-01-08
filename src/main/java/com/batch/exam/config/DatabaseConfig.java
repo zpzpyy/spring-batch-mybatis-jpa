@@ -22,7 +22,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @since 0.1
  */
 @Configuration
-@MapperScan(value="com.batch.exam.mapper", sqlSessionFactoryRef="sqlSessionFactory")
 @EnableTransactionManagement
 public class DatabaseConfig {
 

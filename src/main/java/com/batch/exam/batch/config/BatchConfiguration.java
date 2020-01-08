@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * batch
+ * batch config
  * 
  * @author ljs
  * @since 0.1
@@ -18,9 +18,9 @@ import org.springframework.context.annotation.Configuration;
 @EnableBatchProcessing
 public class BatchConfiguration {
 
-	/** 아래 3개 메소드는 batch시 메타데이터 저장  => 주석처리
-	 *                     메타데이터 저장X => 주석제거
-	* transactionManager()/mapjobRepositoryFactory()/jobRepository()
+	/** Batch MetaData Save  => Remark
+	 *  Batch MetaData Non't Save  => Remark Delete
+	*   transactionManager()/mapjobRepositoryFactory()/jobRepository()
 	*/
 //	@Bean
 //	public ResourcelessTransactionManager transactionManager() {

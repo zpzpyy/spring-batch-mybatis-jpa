@@ -17,7 +17,7 @@ import com.batch.exam.config.Column;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * DB 읽어서 File write Batch
+ * File read DB write batch scheduler(JPA)
  * 
  * @author ljs
  * @since 0.1
@@ -40,12 +40,6 @@ public class JpaFileReadDbWriteScheduler {
 	private static final String jobName = Column.JPA_FILE_READ_DB_WRITE_JOB;
 	private static final String stepName = Column.JPA_FILE_READ_DB_WRITE_STEP;
 	
-	/**
-	 * properties에 설정된 시간 주기로 구동
-	 *
-	 * @author ljs
-	 * @since 0.1
-	 */
 	@Scheduled( cron="${spring.scheduler.cron.jpa-file-read-db-write-batch.cron-cycle}" )
 	public void scheduler() {
 	

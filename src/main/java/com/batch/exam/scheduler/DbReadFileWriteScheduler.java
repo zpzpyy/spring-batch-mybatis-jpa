@@ -17,7 +17,7 @@ import com.batch.exam.config.Column;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * DB 읽어서 File write Batch
+ * DB read File write batch scheduler(mybatis)
  * 
  * @author ljs
  * @since 0.1

@@ -16,6 +16,12 @@ import com.batch.exam.info.User;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * DB read File write batch Step(mybatis)
+ * 
+ * @author ljs
+ * @since 0.1
+ */
 @Slf4j
 @Component
 public class DbReadFileWriteStep {

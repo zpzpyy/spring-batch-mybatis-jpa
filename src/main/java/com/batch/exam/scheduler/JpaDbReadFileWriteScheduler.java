@@ -17,6 +17,12 @@ import com.batch.exam.config.Column;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * DB read File write batch scheduler(JPA)
+ * 
+ * @author ljs
+ * @since 0.1
+ */
 @Slf4j
 @SpringBootApplication
 @EnableScheduling
@@ -54,7 +60,6 @@ public class JpaDbReadFileWriteScheduler {
 		} catch (Exception e) {
 			log.error("[JpaFileReadDbWriteScheduler] scheduler() => job start Error: ", e);
 		}
-		
 		
 	}
 	

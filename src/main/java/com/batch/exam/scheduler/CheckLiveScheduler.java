@@ -16,7 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * Daemon Live Check Scheduler
- * : 주기적으로 배치의 Live 메모리 체크
  * 
  * @author ljs
  * @since 0.1
