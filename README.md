@@ -25,11 +25,11 @@
 
 ## Function list
 
-1)  DB Read   -> FILE writer  (MyBatisCursorItemReader)
-2)  FILE Read -> DB writer    (MyBatisBatchItemWriter)
-3)  DB Read   -> FILE writer  (JpaPagingItemReader)
-4)  FILE Read -> DB writer    (JpaItemWriter)
+* DB Read   -> FILE writer  (MyBatisCursorItemReader)
+* FILE Read -> DB writer    (MyBatisBatchItemWriter)
+* DB Read   -> FILE writer  (JpaPagingItemReader)
+* FILE Read -> DB writer    (JpaItemWriter)
 
 ## Process
 
-  * Scheduler -> Job -> Step -> Reader -> Process -> Writer
+* Scheduler -> Job -> Step -> Reader -> Process -> Writer
