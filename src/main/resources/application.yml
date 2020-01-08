@@ -8,17 +8,17 @@ spring:
     # cron-batch 스케줄러
     cron:
       file-read-db-write-batch:
-        use-yn: N
-        cron-cycle: "0 25 16 * * *"
+        use-yn: Y
+        cron-cycle: "0 49 09 * * *"
         chunk-size: 1000
         read-file-path: "C://workspace_platform/spring-batch-mybatis-jpa/files/read.txt"
       db-read-file-write-batch:
         use-yn: N
-        cron-cycle: "0 27 16 * * *"
+        cron-cycle: "0 47 09 * * *"
         chunk-size: 1000
         write-file-path: "C://workspace_platform/spring-batch-mybatis-jpa/files/write.txt"
       jpa-file-read-db-write-batch:
-        use-yn: Y
+        use-yn: N
         cron-cycle: "0 36 16 * * *"
         chunk-size: 1000
         read-file-path: "C://workspace_platform/spring-batch-mybatis-jpa/files/read.txt"
