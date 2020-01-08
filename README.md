@@ -22,6 +22,7 @@
 * Mariadb-java-client 2.3.X
 * Mybatis-spring 2.0.X
 * spring-boot-starter-data-jpa 2.2.X
+....
 
 ## Function list
 
